@@ -1,0 +1,14 @@
+version: "2"
+services:
+  app:
+    image: "node:7.5"
+    command: "bash -c 'sleep 120; echo done'"
+    networks:
+      - default
+  timer:
+    build: .
+    image: timer
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - default
